@@ -1,0 +1,45 @@
+'''lambda expressions are expressions that are used to create anonymous functions, i.e. functions that do not have a name. They are very helpful for creating quick functions that are not really needed in your code'''
+
+def double(x):
+	return x*2
+
+#equivalent lambda expression
+double = lambda x: x*2
+'''structure of a lambda expression:
+starts with the name of the lambda expression, followed by the "lambda" keyword, one or more input arguments for the anonymous function, a colon, and lastly, the expression that is evaluated and returned in the function '''
+
+print(double(3))
+
+#lambda function that multiplies two numbers together
+multiply = lambda x, y: x*y  #the assignment to a variable is optional for when we want to call the expression and print its output value 
+
+print(multiply(3,4))
+
+#More lambda expressions
+numbers = [
+              [34, 63, 88, 71, 29],
+              [90, 78, 51, 27, 45],
+              [63, 37, 85, 46, 22],
+
+              [51, 22, 34, 11, 18]
+           ]
+
+def mean(num_list):
+    return sum(num_list) / len(num_list)
+
+averages = list(map(mean, numbers))
+print(averages)
+averages2 = list(map(lambda numbers: sum(numbers)/len(numbers), numbers)) #"mean" function  written anonymously as a lambda expression
+print(averages2)
+
+
+cities = ["New York City", "Los Angeles", "Chicago", "Mountain View", "Denver", "Boston"]
+
+def is_short(name):
+    return len(name) < 10
+
+short_cities = list(filter(is_short, cities))
+print(short_cities)
+short_cities2 = list(filter(lambda cities: len(cities)<10, cities)) #is_short written as a lambda expression
+print(short_cities2)
+
