@@ -1,0 +1,68 @@
+items = ['bananas', 'mattresses', 'dog kennels', 'machine', 'cheeses']
+weights = [15,34,42,120,5]
+manifest =list(zip(items, weights))
+''' prints a list of tuples where each tuple comprises the corresponding elements in item and weights '''
+print("The elements of the combined list are {}".format(manifest)+"\n")
+
+
+'''retrieve the elements of each tuple in the iterator'''
+for cargo in zip(items, weights):
+	print(cargo[0],cargo[1])
+'\n'
+'''another way of unpacking the elements in the iterator'''
+for item, weight in zip(items, weights):
+	print(item, weight)
+
+
+items, weights = zip(*manifest) #unpack a zipped list
+print('The items are {} and their weights are {}. The items and their corresponding weights, put together are {}'.format(items,weights,manifest))
+
+#enumerate iterates through a list and returns the index of each item, plus the item in the list
+
+for i, item in enumerate(items):
+	print(i,item)
+
+#Zip the coordinates of locations in a city with labels
+x_coord = [23, 53, 2, -12, 95, 103, 14, -5]
+y_coord = [677, 233, 405, 433, 905, 376, 432, 445]
+z_coord = [4, 16, -6, -42, 3, -6, 23, -1]
+labels = ["F", "J", "A", "Q", "Y", "B", "W", "X"]
+
+points = []
+for point in zip(labels, x_coord, y_coord, z_coord):
+    points.append("{}: {}, {}, {}".format(*point))
+
+for point in points:
+    print(point)
+
+#Zip lists to a dictionary
+cast_names = ["Barney", "Robin", "Ted", "Lily", "Marshall"]
+cast_heights = [72, 68, 72, 66, 76]
+
+cast = dict(zip(cast_names,cast_heights))
+print(cast)
+
+
+#Unzip tuples
+cast = (("Barney", 72), ("Robin", 68), ("Ted", 72), ("Lily", 66), ("Marshall", 76))
+
+# define names and heights here
+names, heights = zip(*cast)
+print(names)
+print(heights)
+
+#Transpose a 4*3 matrix to a 3*4 matrix
+data = ((0, 1, 2), (3, 4, 5), (6, 7, 8), (9, 10, 11))
+
+data_transpose = tuple(zip(*data)) #replace with your code
+print(data_transpose)
+
+#Using enumerate to modify a list
+
+cast = ["Barney Stinson", "Robin Scherbatsky", "Ted Mosby", "Lily Aldrin", "Marshall Eriksen"]
+heights = [72, 68, 72, 66, 76]
+
+for i, character in enumerate(cast):
+    cast[i] = character + " " + str(heights[i])
+
+print(cast)
