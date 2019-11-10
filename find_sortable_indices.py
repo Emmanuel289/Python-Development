@@ -41,7 +41,7 @@ def find_sortable_indices(arr):
 
 
 # test function to see if it returns the correct indices
-test_array1 = [1, 2, 4, 7, 10, 7, 11, 12, 6, 7, 16, 18, 19]
+test_array1 = [1, 2, 4, 7, 10, 11, 12, 6, 16, 18, 19]
 test_array2 = [10, 9, 8, 7, 6, 5]
 print(find_sortable_indices(test_array1))
 print(find_sortable_indices(test_array2))
